@@ -1,0 +1,20 @@
+# Slack
+# Copyright 2023-present NAVER Corp.
+# CC BY-NC-SA 4.0
+
+load_main_model: True
+model:
+  type:
+aug: SLACK
+slack: $ROOT/configs/loss/cifar-40x2.yaml
+cutout: -1
+batch: 128
+gpus: 1
+epoch: 200
+lr: 0.1
+lr_schedule:
+  type: 'cosine'
+optimizer:
+  type: sgd
+  nesterov: False
+  decay:

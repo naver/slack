@@ -1,0 +1,24 @@
+# @package solver
+
+# Slack
+# Copyright 2023-present NAVER Corp.
+# CC BY-NC-SA 4.0
+
+solver_name : 'DAAS'
+outer:
+  name: torch.optim.SGD
+  lr: 0.1
+  momentum: 0.9
+  nesterov: False
+inner_forward:
+  name: 'ForwardREINFORCE'
+  optimizer:
+    name: torch.optim.SGD
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+  n_iter: 10
+  schedule: 
+    name: torch.optim.lr_scheduler.CosineAnnealingLR
+inner_backward:
+  name: 'BackwardREINFORCE'

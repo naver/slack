@@ -1,0 +1,8 @@
+# Slack
+# Copyright 2023-present NAVER Corp.
+# CC BY-NC-SA 4.0
+
+# @package metrics
+disp_freq: 10
+max_outer_iter: 0
+max_inner_iter : 0

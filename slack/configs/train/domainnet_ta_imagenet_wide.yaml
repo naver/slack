@@ -1,0 +1,25 @@
+# Slack
+# Copyright 2023-present NAVER Corp.
+# CC BY-NC-SA 4.0
+
+load_main_model: true
+model:
+  type: resnet18
+aug: randaugment
+randaug:
+  N: 0
+  M: 0    # from appendix
+  weights: [0.0,1.0]
+dataset: domainnet
+cutout: -1
+batch: 128
+gpus: 1
+augmentation_search_space: wide_standard
+epoch: 200
+lr: 0.1
+lr_schedule:
+  type: 'cosine'
+optimizer:
+  type: sgd
+  nesterov: False
+  decay: 0.001

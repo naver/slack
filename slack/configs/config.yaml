@@ -1,0 +1,23 @@
+# Slack
+# Copyright 2023-present NAVER Corp.
+# CC BY-NC-SA 4.0
+
+defaults:
+  - system : default 
+  - logs: default
+  - metrics: default
+  - solver : slack
+  - data : cifar10
+  - loss: 40x2-smoothu
+
+hydra:
+  output_subdir: null
+  run:
+    dir: .
+  sweep:
+    dir: .
+    subdir: .
+  hydra_logging:
+    disable_existing_loggers: True
+  job_logging:
+    disable_existing_loggers: True

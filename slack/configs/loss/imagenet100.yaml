@@ -1,0 +1,27 @@
+# Slack
+# Copyright 2023-present NAVER Corp.
+# CC BY-NC-SA 4.0
+
+inner:
+  name: core.losses.AugCE
+  reg: 0.001
+  model:
+      name: TrivialAugment.networks.resnet.ResNet
+      dataset: imagenet
+      depth: 18
+      num_classes: 100
+      bottleneck: False
+outer:
+  name: core.losses.AugCE
+  model:
+      name: core.slack.SLACK
+      augmentations:
+          name: core.augmentations_torch.AugmentationsOptUMirrorImagenet
+          augment_dict:
+      b_size: 8
+      n_op: 3
+      m_opt: True
+      mu_prior: 0.75
+      dmu:
+        high:
+      Dmu: core.magnitude_distributions.SmoothedUniform
